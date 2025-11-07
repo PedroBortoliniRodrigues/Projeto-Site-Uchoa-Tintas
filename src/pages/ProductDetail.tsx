@@ -1,16 +1,19 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ShoppingCart } from "lucide-react";
+import { ArrowLeft, ShoppingCart, Minus, Plus } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useProduct } from "@/hooks/useProducts";
-import { toast } from "sonner";
+import { useCart } from "@/contexts/CartContext";
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   const { data: product, isLoading } = useProduct(Number(id));
+  const { addToCart } = useCart();
+  const [quantity, setQuantity] = useState(1);
 
   if (isLoading) {
     return (
@@ -54,7 +57,9 @@ export default function ProductDetail() {
   }
 
   const handleAddToCart = () => {
-    toast.success("Produto adicionado ao carrinho!");
+    if (product) {
+      addToCart(product, quantity);
+    }
   };
 
   return (
@@ -101,6 +106,27 @@ export default function ProductDetail() {
                 <CardContent className="pt-6">
                   <div className="text-3xl font-bold text-primary mb-4">
                     R$ {product.price.toFixed(2)}
+                  </div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="font-medium">Quantidade:</span>
+                    <div className="flex items-center gap-3">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      >
+                        <Minus className="h-4 w-4" />
+                      </Button>
+                      <span className="font-bold text-xl w-12 text-center">{quantity}</span>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => setQuantity(quantity + 1)}
+                        disabled={product.stock <= quantity}
+                      >
+                        <Plus className="h-4 w-4" />
+                      </Button>
+                    </div>
                   </div>
                   <Button
                     size="lg"

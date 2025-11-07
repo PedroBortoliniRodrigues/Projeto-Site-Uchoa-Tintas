@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Paintbrush, Shield, Truck } from "lucide-react";
+import { ArrowRight, Paintbrush, Shield, Truck, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
@@ -30,6 +30,12 @@ export default function Home() {
               <Link to="/catalog">
                 Ver Catálogo
                 <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="secondary" className="text-lg gap-2">
+              <Link to="/paint-visualizer">
+                <Palette className="h-5 w-5" />
+                Visualizador 3D
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-lg">

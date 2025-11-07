@@ -4,12 +4,15 @@ import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter } from "./ui/card";
 import { Badge } from "./ui/badge";
 import type { Product } from "@/lib/supabase";
+import { useCart } from "@/contexts/CartContext";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
+  const { addToCart } = useCart();
+
   return (
     <Card className="group overflow-hidden hover:shadow-lg transition-shadow">
       <Link to={`/product/${product.id}`}>
@@ -62,6 +65,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           size="sm"
           disabled={product.stock === 0}
           className="gap-2"
+          onClick={(e) => {
+            e.preventDefault();
+            addToCart(product);
+          }}
         >
           <ShoppingCart className="h-4 w-4" />
           Adicionar

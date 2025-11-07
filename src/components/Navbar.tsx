@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-import { ShoppingCart, Menu, Paintbrush } from "lucide-react";
+import { ShoppingCart, Menu, Palette } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Badge } from "./ui/badge";
+import { useCart } from "@/contexts/CartContext";
 
 export const Navbar = () => {
-  const cartItemsCount = 0; // TODO: Conectar com estado do carrinho
+  const { getItemCount } = useCart();
+  const cartItemsCount = getItemCount();
 
   const NavLinks = () => (
     <>
@@ -14,6 +16,9 @@ export const Navbar = () => {
       </Link>
       <Link to="/catalog" className="text-foreground hover:text-primary transition-colors font-medium">
         Catálogo
+      </Link>
+      <Link to="/paint-visualizer" className="text-foreground hover:text-primary transition-colors font-medium">
+        Visualizador 3D
       </Link>
       <Link to="/contact" className="text-foreground hover:text-primary transition-colors font-medium">
         Contato
@@ -24,8 +29,8 @@ export const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <Paintbrush className="h-6 w-6 text-primary" />
+        <Link to="/" className="flex items-center gap-3">
+          <img src="/logo.png" alt="Uchoa Tintas" className="h-10 w-10 object-contain" />
           <span className="font-bold text-xl">Uchoa Tintas</span>
         </Link>
 
@@ -63,4 +68,4 @@ export const Navbar = () => {
       </div>
     </nav>
   );
-};
+}

@@ -18,7 +18,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
   className="relative h-[600px] flex items-center justify-center bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjCsjSpBJk8ZDcF2GkWh_pp1rdKn-TBGa7MA&s')" }}
+  style={{ backgroundImage: "url('https://cdn6.campograndenews.com.br/uploads/noticias/2024/01/26/dca19796cde33c3c23d9d81e9164b5f7721f4642.jpg')" }}
 >
   {/* CAMADA PARA AJUSTAR VISIBILIDADE (70% VISÍVEL) */}
   <div className="absolute inset-0 bg-white/30"></div>
@@ -51,6 +51,7 @@ export default function Home() {
     </div>
   </div>
 </section>
+
 
 
       {/* Features */}

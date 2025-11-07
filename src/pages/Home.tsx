@@ -16,34 +16,42 @@ export default function Home() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center justify-center bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10">
-        <div className="container text-center space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            Transforme Seus Espaços com
-            <span className="block text-primary mt-2">Tintas de Qualidade</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            As melhores marcas e produtos para seus projetos de pintura. Qualidade garantida e entrega rápida.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="text-lg gap-2">
-              <Link to="/catalog">
-                Ver Catálogo
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="secondary" className="text-lg gap-2">
-              <Link to="/paint-visualizer">
-                <Palette className="h-5 w-5" />
-                Visualizador 3D
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="text-lg">
-              <Link to="/contact">Fale Conosco</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <section
+  className="relative h-[600px] flex items-center justify-center bg-cover bg-center bg-no-repeat"
+  style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjCsjSpBJk8ZDcF2GkWh_pp1rdKn-TBGa7MA&s')" }}
+>
+  {/* CAMADA PARA AJUSTAR VISIBILIDADE (70% VISÍVEL) */}
+  <div className="absolute inset-0 bg-white/30"></div>
+
+  <div className="container text-center space-y-6 relative z-10">
+    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+      Transforme Seus Espaços com
+      <span className="block text-primary mt-2">Tintas de Qualidade</span>
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+      As melhores marcas e produtos para seus projetos de pintura. Qualidade garantida e entrega rápida.
+    </p>
+
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <Button asChild size="lg" className="text-lg gap-2">
+        <Link to="/catalog">
+          Ver Catálogo
+          <ArrowRight className="h-5 w-5" />
+        </Link>
+      </Button>
+      <Button asChild size="lg" variant="secondary" className="text-lg gap-2">
+        <Link to="/paint-visualizer">
+          <Palette className="h-5 w-5" />
+          Visualizador 3D
+        </Link>
+      </Button>
+      <Button asChild size="lg" variant="outline" className="text-lg">
+        <Link to="/contact">Fale Conosco</Link>
+      </Button>
+    </div>
+  </div>
+</section>
+
 
       {/* Features */}
       <section className="py-16 bg-muted/30">

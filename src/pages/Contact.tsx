@@ -67,8 +67,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Telefone</h3>
-                    <p className="text-muted-foreground">(11) 1234-5678</p>
-                    <p className="text-sm text-muted-foreground">Seg-Sex: 8h às 18h</p>
+                    <p className="text-muted-foreground">(91) 98029-3915</p>
+                    <p className="text-sm text-muted-foreground">Seg-Sex: 8h às 18h / Sab: 08 às 12h</p>
                   </div>
                 </CardContent>
               </Card>
@@ -93,7 +93,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Localização</h3>
-                    <p className="text-muted-foreground">São Paulo, SP</p>
+                    <p className="text-muted-foreground">Av. do Contorno, 306 - Centro, Paragominas - PA, 68625-245</p>
                     <p className="text-sm text-muted-foreground">Brasil</p>
                   </div>
                 </CardContent>
